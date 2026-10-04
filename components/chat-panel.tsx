@@ -52,7 +52,6 @@ import { useArtifact } from './artifact/artifact-context'
 import { useLibrary } from './library/library-context'
 import { LibraryPickerDialog } from './library/library-picker-dialog'
 import { Button } from './ui/button'
-import { IconBlinkingLogo } from './ui/icons'
 import {
   Tooltip,
   TooltipContent,
@@ -459,7 +458,6 @@ export function ChatPanel({
     >
       {messages.length === 0 && (
         <div className="mb-6 md:mb-10 flex flex-col items-center gap-2 md:gap-4">
-          <IconBlinkingLogo className="size-12" />
           <h1 className="text-xl md:text-2xl font-medium text-foreground">
             What would you like to know?
           </h1>

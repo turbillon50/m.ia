@@ -9,7 +9,6 @@ import type { UIDataTypes, UIMessage, UITools } from '@/lib/types/ai'
 import { cn } from '@/lib/utils'
 import { extractCitationMapsFromMessages } from '@/lib/utils/citation'
 
-import { AnimatedLogo } from './ui/animated-logo'
 import { ChatError } from './chat-error'
 import { ChatFooterMessage } from './chat-footer-message'
 import { RenderMessage } from './render-message'
@@ -276,10 +275,6 @@ export function ChatMessages({
             {/* Show assistant logo and footer message after assistant messages */}
             {showAssistantLogo && sectionIndex === sections.length - 1 && (
               <div className="flex items-center gap-3 py-1 md:py-4">
-                <AnimatedLogo
-                  className="size-10 shrink-0"
-                  animate={isLoading}
-                />
                 <ChatFooterMessage isLoading={isLoading} />
               </div>
             )}

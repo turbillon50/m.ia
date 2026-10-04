@@ -1,7 +1,6 @@
 import { Suspense } from 'react'
 import Link from 'next/link'
 
-import { cn } from '@/lib/utils'
 
 import {
   Sidebar,
@@ -16,7 +15,6 @@ import { ChatHistorySection } from './sidebar/chat-history-section'
 import { ChatHistorySkeleton } from './sidebar/chat-history-skeleton'
 import { LibraryMenuItem } from './sidebar/library-menu-item'
 import { NewChatMenuItem } from './sidebar/new-chat-menu-item'
-import { IconLogo } from './ui/icons'
 
 export default function AppSidebar() {
   // Anonymous mode has no per-user library, and the server actions reject it,
@@ -27,7 +25,6 @@ export default function AppSidebar() {
     <Sidebar side="left" variant="sidebar" collapsible="offcanvas">
       <SidebarHeader className="flex flex-row justify-between items-center">
         <Link href="/" className="flex items-center gap-2 px-2 py-3">
-          <IconLogo className={cn('size-5')} />
           <span className="font-semibold text-sm">Morphic</span>
         </Link>
         <SidebarTrigger />

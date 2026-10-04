@@ -10,7 +10,6 @@ import {
   DialogHeader,
   DialogTitle
 } from '@/components/ui/dialog'
-import { IconLogo } from '@/components/ui/icons'
 
 interface AuthModalProps {
   open: boolean
@@ -23,7 +22,6 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
       <DialogContent className="sm:max-w-md">
         <DialogHeader className="items-center text-center">
           <div className="mx-auto mb-6 flex size-20 items-center justify-center rounded-full bg-muted">
-            <IconLogo className="size-14" />
           </div>
           <DialogTitle className="text-xl font-semibold">
             Continue with Morphic
