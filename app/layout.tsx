@@ -21,6 +21,7 @@ import { Toaster } from '@/components/ui/sonner'
 import AppSidebar from '@/components/app-sidebar'
 import ArtifactRoot from '@/components/artifact/artifact-root'
 import Header from '@/components/header'
+import { IntroSplash } from '@/components/intro-splash'
 import { KeyboardShortcutHandler } from '@/components/keyboard-shortcut-handler'
 import { LibraryProvider } from '@/components/library/library-context'
 import { PostHogProvider } from '@/components/posthog-provider'
@@ -140,6 +141,7 @@ export default async function RootLayout({
               </SidebarProvider>
             </UserProvider>
           </PostHogProvider>
+          <IntroSplash />
           <Toaster />
           {isCloudDeployment && <Analytics />}
         </ThemeProvider>
