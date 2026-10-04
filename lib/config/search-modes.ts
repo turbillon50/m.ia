@@ -1,8 +1,6 @@
-import { IconSearch as Search } from '@tabler/icons-react'
+import { IconBrain as Brain, IconSearch as Search } from '@tabler/icons-react'
 
 import { SearchMode } from '@/lib/types/search'
-
-import { IconLogoOutline } from '@/components/ui/icons'
 
 export interface SearchModeConfig {
   value: SearchMode
@@ -25,7 +23,7 @@ export const SEARCH_MODE_CONFIGS: SearchModeConfig[] = [
     value: 'adaptive',
     label: 'Adaptive',
     description: 'Adaptive agentic search with intelligent query understanding',
-    icon: IconLogoOutline,
+    icon: Brain,
     color: 'text-violet-500'
   }
 ]
