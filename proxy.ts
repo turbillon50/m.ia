@@ -1,7 +1,16 @@
 import { type NextRequest, NextResponse } from 'next/server'
 
+import { clerkMiddleware } from '@clerk/nextjs/server'
+
 import { hasSupabasePublicConfig } from '@/lib/supabase/keys'
 import { updateSession } from '@/lib/supabase/middleware'
+
+const hasClerkKeys = Boolean(
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.CLERK_SECRET_KEY
+)
+const clerkHandler = hasClerkKeys
+  ? (clerkMiddleware() as unknown as (req: NextRequest) => Promise<Response>)
+  : null
 
 export async function proxy(request: NextRequest) {
   // Get the protocol from X-Forwarded-Proto header or request protocol
@@ -18,7 +27,9 @@ export async function proxy(request: NextRequest) {
   // Create a response
   let response: NextResponse
 
-  if (hasSupabasePublicConfig()) {
+  if (clerkHandler) {
+    response = (await clerkHandler(request)) as NextResponse
+  } else if (hasSupabasePublicConfig()) {
     response = await updateSession(request)
   } else {
     // If Supabase is not configured, just pass the request through

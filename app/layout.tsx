@@ -26,6 +26,7 @@ import { KeyboardShortcutHandler } from '@/components/keyboard-shortcut-handler'
 import { LibraryProvider } from '@/components/library/library-context'
 import { PostHogProvider } from '@/components/posthog-provider'
 import { ThemeProvider } from '@/components/theme-provider'
+import ClerkGate from '@/components/clerk-provider'
 import { UsageBudgetProvider } from '@/components/usage-budget-provider'
 
 import './globals.css'
@@ -113,6 +114,7 @@ export default async function RootLayout({
           fontSans.variable
         )}
       >
+        <ClerkGate>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -145,6 +147,7 @@ export default async function RootLayout({
           <Toaster />
           {isCloudDeployment && <Analytics />}
         </ThemeProvider>
+        </ClerkGate>
       </body>
     </html>
   )
